@@ -25,7 +25,10 @@ return [
         'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, name, latitude, longitude, styles, partners',
     ],
     'types' => [
-        '1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, name, latitude, longitude, styles, partners, '],
+        '1' => ['showitem' => '--div--;Karte, name, --palette--;Kartenmittelpunkt;center, --div--;CSS Stil, styles, --div--;Partner, partners, --div--;Zugriff, sys_language_uid, l10n_parent, l10n_diffsource, hidden, '],
+    ],
+    'palettes' => [
+        'center' => ['showitem' => 'latitude, longitude', 'canNotCollapse' => true],
     ],
     'columns' => [
         'sys_language_uid' => [
@@ -93,17 +96,19 @@ return [
 	        'config' => [
 			    'type' => 'input',
 			    'size' => 30,
-			    'eval' => 'double2,required'
-			]
-	        
-	    ],
-	    'longitude' => [
-	        'exclude' => 0,
-	        'label' => 'LLL:EXT:pb_osmpartners/Resources/Private/Language/locallang_db.xlf:tx_pbosmpartners_domain_model_map.longitude',
-	        'config' => [
-			    'type' => 'input',
-			    'size' => 30,
-			    'eval' => 'double2,required'
+                'max' => 11,
+                // 'eval' => 'double2,required'
+            ]
+            
+        ],
+        'longitude' => [
+            'exclude' => 0,
+            'label' => 'LLL:EXT:pb_osmpartners/Resources/Private/Language/locallang_db.xlf:tx_pbosmpartners_domain_model_map.longitude',
+            'config' => [
+                'type' => 'input',
+                'size' => 30,
+                'max' => 11,
+			    // 'eval' => 'double2,required'
 			]
 	        
 	    ],

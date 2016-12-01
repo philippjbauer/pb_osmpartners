@@ -26,7 +26,11 @@ return [
         'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, name, street, houseno, zip, city, state, url, summary, description, extra, logo, latitude, longitude, country',
     ],
     'types' => [
-        '1' => ['showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, name, street, houseno, zip, city, state, url, summary, description, extra, logo, latitude, longitude, country, --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime'],
+        '1' => ['showitem' => '--div--;Partner, name, logo, --palette--;Adresse;address, --palette--;Koordinaten;coordinates, --div--;Details, url, summary, description, extra, --div--;Zugriff, sys_language_uid, l10n_parent, l10n_diffsource, hidden, starttime, endtime'],
+    ],
+    'palettes' => [
+    	'address' => ['showitem' => 'street, houseno, --linebreak--, zip, city, --linebreak--, state, country', 'canNotCollapse' => true],
+    	'coordinates' => ['showitem' => 'latitude, longitude', 'canNotCollapse' => true],
     ],
     'columns' => [
         'sys_language_uid' => [
