@@ -69,10 +69,11 @@ Otherwise your changes will be overwritten the next time you save the extension 
 
 
 <style type="text/css">
-#leafletMap-{map.uid} {
-    width: {f:if(condition:'{settings.mapWidth}',then:{settings.mapWidth},else:'100%');};
-    height: {f:if(condition:'{settings.mapHeight}',then:{settings.mapHeight},else:'550px');};
-}
+<![CDATA[
+#leafletMap-]]>{map.uid}<![CDATA[ {
+    width: ]]>{f:if(condition:'{settings.mapWidth}',then:'{settings.mapWidth}',else:'100%')}<![CDATA[;
+    height: ]]>{f:if(condition:'{settings.mapHeight}',then:'{settings.mapHeight}',else:'550px')}<![CDATA[;
+}]]>
 </style>
 
 <script type="text/javascript">
