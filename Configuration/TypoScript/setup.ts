@@ -31,7 +31,7 @@ plugin.tx_vhs.settings.asset {
         type = css
     }
 
-    productioncss {
+    osmpartnerscss {
         path = EXT:pb_osmpartners/Resources/Public/Styles/production.css
         group = general
         standalone = 0
@@ -52,16 +52,14 @@ plugin.tx_vhs.settings.asset {
     leafletprovidersjs {
         path = EXT:pb_osmpartners/Resources/bower_components/leaflet-providers/leaflet-providers.js
         group = leaflet
-        dependencies = leaflet
+        dependencies = leafletjs
         standalone = 0
         movable = 0
         type = js
     }
 
-    productionjs {
+    osmpartnersjs {
         path = EXT:pb_osmpartners/Resources/Public/Scripts/production.js
-        #group = leaflet
-        #standalone = 0
         movable = 1
         type = js
     }
