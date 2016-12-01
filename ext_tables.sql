@@ -7,8 +7,8 @@ CREATE TABLE tx_pbosmpartners_domain_model_map (
 	pid int(11) DEFAULT '0' NOT NULL,
 
 	name varchar(255) DEFAULT '' NOT NULL,
-	latitude double(11,2) DEFAULT '0.00' NOT NULL,
-	longitude double(11,2) DEFAULT '0.00' NOT NULL,
+	latitude double(11,6) DEFAULT '0.000000' NOT NULL,
+	longitude double(11,6) DEFAULT '0.000000' NOT NULL,
 	styles text NOT NULL,
 	partners int(11) unsigned DEFAULT '0' NOT NULL,
 
