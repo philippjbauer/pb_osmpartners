@@ -61,7 +61,7 @@ function OsmPartnersMap (map, partners) {
      */
     function init () {
         scope.leaflet.map
-            .setView([scope.map.latitude, scope.map.longitude], 6)
+            .setView([scope.map.latitude, scope.map.longitude], scope.map.initZoomLevel)
             .addLayer(scope.leaflet.provider)
             .addLayer(scope.leaflet.markers);
         scope.addMarkers();

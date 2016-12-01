@@ -26,6 +26,37 @@
                             </config>
                         </TCEforms>
                     </settings.mapUid>
+                    <settings.mapWidth>
+                        <TCEforms>
+                            <label>Map Width</label>
+                            <config>
+                                <type>input</type>
+                                <default>100%</default>
+                                <size>30</size>
+                            </config>
+                        </TCEforms>
+                    </settings.mapWidth>
+                    <settings.mapHeight>
+                        <TCEforms>
+                            <label>Map Height</label>
+                            <config>
+                                <type>input</type>
+                                <default>550px</default>
+                                <size>30</size>
+                            </config>
+                        </TCEforms>
+                    </settings.mapHeight>
+                    <settings.initZoomLevel>
+                        <TCEforms>
+                            <label>Initial Zoom Level</label>
+                            <config>
+                                <type>input</type>
+                                <default>6</default>
+                                <size>30</size>
+                                <eval>int</eval>
+                            </config>
+                        </TCEforms>
+                    </settings.initZoomLevel>
                 </el>
             </ROOT>
         </sDEF>
