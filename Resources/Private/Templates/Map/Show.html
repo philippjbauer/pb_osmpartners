@@ -70,8 +70,8 @@ Otherwise your changes will be overwritten the next time you save the extension 
 
 <style type="text/css">
 #leafletMap-{map.uid} {
-    width: 100%;
-    height: 550px;
+    width: {f:if(condition:'{settings.mapWidth}',then:{settings.mapWidth},else:'100%');};
+    height: {f:if(condition:'{settings.mapHeight}',then:{settings.mapHeight},else:'550px');};
 }
 </style>
 
@@ -83,6 +83,7 @@ leafletMaps.push({
     uid: ]]>{map.uid}<![CDATA[,
     latitude: ]]>{map.latitude}<![CDATA[,
     longitude: ]]>{map.longitude}<![CDATA[,
+    initZoomLevel: ]]>{settings.initZoomLevel}<![CDATA[,
 });
 leafletPartners.push(]]>{partnersJson -> f:format.raw()}<![CDATA[);
 ]]>
