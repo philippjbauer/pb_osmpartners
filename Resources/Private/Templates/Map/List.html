@@ -1,0 +1,44 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+
+This Template is responsible for creating a table of domain objects.
+
+If you modify this template, do not forget to change the overwrite settings
+in /Configuration/ExtensionBuilder/settings.yaml:
+  Resources:
+    Private:
+      Templates:
+        List.html: keep
+
+Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+<f:section name="main">
+<h1>Listing for Map</h1>
+
+<f:flashMessages />
+
+<table  class="tx_pbosmpartners" >
+	<tr>
+		<th><f:translate key="tx_pbosmpartners_domain_model_map.name" /></th>
+		<th><f:translate key="tx_pbosmpartners_domain_model_map.latitude" /></th>
+		<th><f:translate key="tx_pbosmpartners_domain_model_map.longitude" /></th>
+		<th><f:translate key="tx_pbosmpartners_domain_model_map.styles" /></th>
+		<th> </th>
+		<th> </th>
+	</tr>
+
+	<f:for each="{maps}" as="map">
+		<tr>
+			<td><f:link.action action="show" arguments="{map : map}"> {map.name}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{map : map}"> {map.latitude}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{map : map}"> {map.longitude}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{map : map}"> {map.styles}</f:link.action></td>
+			<td><f:link.action action="edit" arguments="{map : map}">Edit</f:link.action></td>
+			<td><f:link.action action="delete" arguments="{map : map}">Delete</f:link.action></td>
+		</tr>
+	</f:for>
+</table>
+
+<f:link.action action="new">New Map</f:link.action>
+</f:section>
+</html>

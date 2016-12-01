@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2016-11-18T04:48:13Z" product-name="pb_osmpartners">
+		<header/>
+		<body>
+			<trans-unit id="tx_pbosmpartners_domain_model_map">
+				<source>Map</source>
+			</trans-unit>
+			<trans-unit id="tx_pbosmpartners_domain_model_map.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_pbosmpartners_domain_model_map.latitude">
+				<source>Latitude</source>
+			</trans-unit>
+			<trans-unit id="tx_pbosmpartners_domain_model_map.longitude">
+				<source>Longitude</source>
+			</trans-unit>
+			<trans-unit id="tx_pbosmpartners_domain_model_map.styles">
+				<source>Styles</source>
+			</trans-unit>
+			<trans-unit id="tx_pbosmpartners_domain_model_map.partners">
+				<source>Partners</source>
+			</trans-unit>
+			<trans-unit id="tx_pbosmpartners_domain_model_partner">
+				<source>Partner</source>
+			</trans-unit>
+			<trans-unit id="tx_pbosmpartners_domain_model_partner.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_pbosmpartners_domain_model_partner.street">
+				<source>Street</source>
+			</trans-unit>
+			<trans-unit id="tx_pbosmpartners_domain_model_partner.houseno">
+				<source>Houseno</source>
+			</trans-unit>
+			<trans-unit id="tx_pbosmpartners_domain_model_partner.zip">
+				<source>Zip</source>
+			</trans-unit>
+			<trans-unit id="tx_pbosmpartners_domain_model_partner.city">
+				<source>City</source>
+			</trans-unit>
+			<trans-unit id="tx_pbosmpartners_domain_model_partner.state">
+				<source>State</source>
+			</trans-unit>
+			<trans-unit id="tx_pbosmpartners_domain_model_partner.url">
+				<source>Url</source>
+			</trans-unit>
+			<trans-unit id="tx_pbosmpartners_domain_model_partner.summary">
+				<source>Summary</source>
+			</trans-unit>
+			<trans-unit id="tx_pbosmpartners_domain_model_partner.description">
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="tx_pbosmpartners_domain_model_partner.extra">
+				<source>Extra</source>
+			</trans-unit>
+			<trans-unit id="tx_pbosmpartners_domain_model_partner.logo">
+				<source>Logo</source>
+			</trans-unit>
+			<trans-unit id="tx_pbosmpartners_domain_model_partner.latitude">
+				<source>Latitude</source>
+			</trans-unit>
+			<trans-unit id="tx_pbosmpartners_domain_model_partner.longitude">
+				<source>Longitude</source>
+			</trans-unit>
+			<trans-unit id="tx_pbosmpartners_domain_model_partner.country">
+				<source>Country</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2016-11-18T04:48:13Z" product-name="pb_osmpartners">
+		<header/>
+		<body>
+			<trans-unit id="name.description">
+				<source>name</source>
+			</trans-unit>
+			<trans-unit id="latitude.description">
+				<source>Center Point Latitude</source>
+			</trans-unit>
+			<trans-unit id="longitude.description">
+				<source>Center Point Longitude</source>
+			</trans-unit>
+			<trans-unit id="styles.description">
+				<source>styles</source>
+			</trans-unit>
+			<trans-unit id="partners.description">
+				<source>partners</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
