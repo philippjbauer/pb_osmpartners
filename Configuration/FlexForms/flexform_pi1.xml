@@ -61,7 +61,7 @@
                         <TCEforms>
                             <label>Show ZIP Search</label>
                             <config>
-                                <type>boolean</type>
+                                <type>check</type>
                                 <default>1</default>
                             </config>
                         </TCEforms>
