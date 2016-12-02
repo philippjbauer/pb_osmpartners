@@ -34,7 +34,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
 <div id="leafletPartners-{map.uid}" class="leafletPartners leafletPartners-{map.uid}">
 <f:for each="{map.partners}" as="partner">
     <div class="leafletPartner" data-zip="{partner.zip}">
-        <div class="row">
+        <div class="leafletPartner-header row">
             <div class="col-xs-12">
                 <f:if condition="{partner.logo}">
                     <f:image image="{partner.logo}" maxHeight="100" />

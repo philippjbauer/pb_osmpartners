@@ -1,0 +1,14 @@
+.leafletSearch {
+	margin: 20px 0;
+}
+
+.leafletPartner {
+	margin-bottom: 20px;
+	border-bottom: 1px solid #CCC;
+}
+	.leafletPartner-header {
+		margin-bottom: 20px;
+	}
+	.leafletPartner-summary {
+		margin-top: 10px;
+	}
