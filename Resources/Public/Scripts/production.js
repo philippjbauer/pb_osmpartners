@@ -27,7 +27,7 @@ function OsmPartnersMap (map, partners) {
     scope.leaflet = {
         // Get the map container by ID that
         // is defined in the map/show.html template
-        map: L.map('leafletMap-' + scope.map.uid),
+        map: L.map('leaflet-map-' + scope.map.uid),
         // See other providers at
         // http://leaflet-extras.github.io/leaflet-providers/preview/index.html
         provider: L.tileLayer.provider('CartoDB.Positron'),
@@ -121,7 +121,7 @@ function OsmPartnersMap (map, partners) {
      * Watch Input
      */
     function watchInput () {
-        var $leafletSearch = $('#leafletSearch-' + scope.map.uid + ' input'),
+        var $leafletSearch = $('#leaflet-search-' + scope.map.uid + ' input'),
             inputDelay = null;
 
         // We can disable the search input in the plugin,
@@ -147,12 +147,12 @@ function OsmPartnersMap (map, partners) {
 
         if (zip !== '') {
             // Hide all partners
-            $('#leafletPartners-' + scope.map.uid + ' .leafletPartner').hide();
+            $('#leaflet-partners-' + scope.map.uid + ' .leaflet-partner').hide();
             // Show partners that do match the ZIP-Code
-            $('#leafletPartners-' + scope.map.uid + ' .leafletPartner[data-zip^="' + zip + '"]').show();
+            $('#leaflet-partners-' + scope.map.uid + ' .leaflet-partner[data-zip^="' + zip + '"]').show();
         } else {
             // Show all partners
-            $('#leafletPartners-' + scope.map.uid + ' .leafletPartner').show();
+            $('#leaflet-partners-' + scope.map.uid + ' .leaflet-partner').show();
         }
 
         scope.addMarkers(zip === '' ? null : zip);

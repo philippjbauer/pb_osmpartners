@@ -16,10 +16,10 @@ Otherwise your changes will be overwritten the next time you save the extension 
 
 <f:flashMessages />
 
-<div id="leafletMap-{map.uid}" class="leafletMap leafletMap-{map.uid}"></div>
+<div id="leaflet-map-{map.uid}" class="leaflet-map leaflet-map-{map.uid}"></div>
 
 <f:if condition="{settings.showZipSearch}">
-<div id="leafletSearch-{map.uid}" class="leafletSearch leafletSearch-{map.uid}">
+<div id="leaflet-search-{map.uid}" class="leaflet-search leaflet-search-{map.uid}">
     <form action="#">
         <div class="input-group">
             <input type="text" name="zip" class="form-control" placeholder="{f:translate(key:'labels.search-zip')}">
@@ -31,10 +31,10 @@ Otherwise your changes will be overwritten the next time you save the extension 
 </div>
 </f:if>
 
-<div id="leafletPartners-{map.uid}" class="leafletPartners leafletPartners-{map.uid}">
+<div id="leaflet-partners-{map.uid}" class="leaflet-partners leaflet-partners-{map.uid}">
 <f:for each="{map.partners}" as="partner">
-    <div class="leafletPartner" data-zip="{partner.zip}">
-        <div class="leafletPartner-header row">
+    <div class="leaflet-partner" data-zip="{partner.zip}">
+        <div class="leaflet-partner-header row">
             <div class="col-xs-12">
                 <f:if condition="{partner.logo}">
                     <f:image image="{partner.logo}" maxHeight="100" />
@@ -44,7 +44,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
             </div>
         </div>
         <div class="row">
-            <div class="leafletPartner-address col-xs-12 col-sm-6 col-md-4">
+            <div class="leaflet-partner-address col-xs-12 col-sm-6 col-md-4">
                 <strong>{partner.name}</strong>
                 <br>{partner.street} {partner.houseno}
                 <br>{partner.zip} {partner.city}
@@ -55,14 +55,14 @@ Otherwise your changes will be overwritten the next time you save the extension 
                     <br><f:link.external uri="{partner.url}" target="_blank">{partner.url}</f:link.external>
                 </f:if>
             </div>
-            <div class="leafletPartner-description col-xs-12 col-sm-6 col-md-8">
+            <div class="leaflet-partner-description col-xs-12 col-sm-6 col-md-8">
             <f:if condition="{partner.description}">
                 {partner.description -> f:format.html()}
             </f:if>
             </div>
         </div>
         <f:if condition="{partner.summary}">
-        <div class="leafletPartner-summary row">
+        <div class="leaflet-partner-summary row">
             <div class="col-xs-12">
                 {partner.summary -> f:format.html()}
             </div>
@@ -75,7 +75,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
 
 <style type="text/css">
 <![CDATA[
-#leafletMap-]]>{map.uid}<![CDATA[ {
+#leaflet-map-]]>{map.uid}<![CDATA[ {
     width: ]]>{f:if(condition:'{settings.mapWidth}',then:'{settings.mapWidth}',else:'100%')}<![CDATA[;
     height: ]]>{f:if(condition:'{settings.mapHeight}',then:'{settings.mapHeight}',else:'550px')}<![CDATA[;
 }]]>
