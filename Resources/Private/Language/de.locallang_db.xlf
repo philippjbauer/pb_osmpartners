@@ -67,6 +67,9 @@
 			<trans-unit id="tx_pbosmpartners_domain_model_partner.country">
 				<target>Land</target>
 			</trans-unit>
+			<trans-unit id="tx_pbosmpartners_domain_model_partner.click_counter">
+				<target>Klick Zähler</target>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>

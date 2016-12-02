@@ -39,7 +39,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
                 <f:if condition="{partner.logo}">
                     <f:image image="{partner.logo}" maxHeight="100" />
                 </f:if>
-                <f:link.external uri="{partner.url}" class="btn btn-primary pull-right" target="_blank">{f:translate(key:'labels.learn-more')}</f:link.external>
+                <f:link.external uri="{partner.url}" class="btn btn-primary pull-right js-partner-tracking" additionalAttributes="{data-partner: '{partner.uid}'}" target="_blank">{f:translate(key:'labels.learn-more')}</f:link.external>
                 <div class="clearfix"></div>
             </div>
         </div>
@@ -52,7 +52,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
                     <br>{partner.state}
                 </f:if>
                 <f:if condition="{partner.url}">
-                    <br><f:link.external uri="{partner.url}" target="_blank">{partner.url}</f:link.external>
+                    <br><f:link.external uri="{partner.url}" class="js-partner-tracking" additionalAttributes="{data-partner: '{partner.uid}'}" target="_blank">{partner.url}</f:link.external>
                 </f:if>
             </div>
             <div class="leaflet-partner-description col-xs-12 col-sm-6 col-md-8">
@@ -85,6 +85,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
 <![CDATA[
 if (typeof leafletMaps == 'undefined') { var leafletMaps = []; }
 if (typeof leafletPartners == 'undefined') { var leafletPartners = []; }
+if (typeof leafletTrackingUrl == 'undefined') { var leafletTrackingUrl = ']]>{f:uri.action(action:'tracking')}<![CDATA['; }
 leafletMaps.push({
     uid: ]]>{map.uid}<![CDATA[,
     latitude: ]]>{map.latitude}<![CDATA[,

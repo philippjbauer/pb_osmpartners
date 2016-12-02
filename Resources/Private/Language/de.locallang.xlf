@@ -10,6 +10,13 @@
 				<target>Nach PLZ suchen</target>
 			</trans-unit>
 
+			<trans-unit id="mail.tracking-subject">
+				<target>Neuer Klick bei %s</target>
+			</trans-unit>
+			<trans-unit id="mail.tracking-content">
+				<target>Ein neuer Klick für %s ist eingegangen, der aktuelle Klick Zähler-Stand ist: %s</target>
+			</trans-unit>
+
 			<trans-unit id="tx_pbosmpartners_domain_model_map">
 				<target>Karte</target>
 			</trans-unit>
@@ -73,6 +80,9 @@
 			</trans-unit>
 			<trans-unit id="tx_pbosmpartners_domain_model_partner.country">
 				<target>Land</target>
+			</trans-unit>
+			<trans-unit id="tx_pbosmpartners_domain_model_partner.click_counter">
+				<target>Klick Zähler</target>
 			</trans-unit>
 		</body>
 	</file>
