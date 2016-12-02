@@ -85,8 +85,32 @@ function OsmPartnersMap (map, partners) {
         for (var i = 0; i < scope.partners.length; i++) {
             if (zip === null || scope.partners[i].zip.substr(0, zip.length) === zip) {
                 // Create marker for this partner
-                marker = L.marker([scope.partners[i].latitude, scope.partners[i].longitude], {icon: this.leaflet.icon})
-                    .bindPopup('<p><strong>' + scope.partners[i].name + '</strong><br>' + scope.partners[i].street + ' ' + scope.partners[i].houseno + '<br>' + scope.partners[i].zip + ' ' + scope.partners[i].city + '<p><a href="' + scope.partners[i].url + '" target="_blank">Webseite aufrufen</a>');
+                marker = L.marker(
+                    [
+                        scope.partners[i].latitude,
+                        scope.partners[i].longitude
+                    ],
+                    {
+                        icon: this.leaflet.icon
+                    }
+                );
+
+                // Create Tooltip
+                var tooltipHtml = '\
+                    <strong>' + scope.partners[i].name + '</strong>\
+                    <br>' +  scope.partners[i].city + '\
+                ';
+                marker.bindTooltip(tooltipHtml);
+
+                // Create Popup
+                var popupHtml = '\
+                    <strong>' + scope.partners[i].name + '</strong>\
+                    <br>' + scope.partners[i].street + ' ' + scope.partners[i].houseno + '\
+                    <br>' + scope.partners[i].zip + ' ' + scope.partners[i].city + '\
+                    <br><a href="' + scope.partners[i].url + '" target="_blank">Webseite aufrufen</a>\
+                ';
+                marker.bindPopup(popupHtml);
+
                 // Add marker to the marker layer
                 scope.leaflet.markers.addLayer(marker);
             }
