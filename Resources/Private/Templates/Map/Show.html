@@ -17,6 +17,8 @@ Otherwise your changes will be overwritten the next time you save the extension 
 <f:flashMessages />
 
 <div id="leafletMap-{map.uid}" class="leafletMap leafletMap-{map.uid}"></div>
+
+<f:if condition="{settings.showZipSearch}">
 <div id="leafletSearch-{map.uid}" class="leafletSearch leafletSearch-{map.uid}">
     <form action="#">
         <div class="input-group">
@@ -27,6 +29,8 @@ Otherwise your changes will be overwritten the next time you save the extension 
         </div>
     </form>
 </div>
+</f:if>
+
 <div id="leafletPartners-{map.uid}" class="leafletPartners leafletPartners-{map.uid}">
 <f:for each="{map.partners}" as="partner">
     <div class="leafletPartner" data-zip="{partner.zip}">
@@ -40,7 +44,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
             </div>
         </div>
         <div class="row">
-            <div class="partner-address col-xs-12 col-sm-6 col-md-4">
+            <div class="leafletPartner-address col-xs-12 col-sm-6 col-md-4">
                 <strong>{partner.name}</strong>
                 <br>{partner.street} {partner.houseno}
                 <br>{partner.zip} {partner.city}
@@ -51,14 +55,14 @@ Otherwise your changes will be overwritten the next time you save the extension 
                     <br><f:link.external uri="{partner.url}" target="_blank">{partner.url}</f:link.external>
                 </f:if>
             </div>
-            <div class="partner-description col-xs-12 col-sm-6 col-md-8">
+            <div class="leafletPartner-description col-xs-12 col-sm-6 col-md-8">
             <f:if condition="{partner.description}">
                 {partner.description -> f:format.html()}
             </f:if>
             </div>
         </div>
         <f:if condition="{partner.summary}">
-        <div class="partner-summary row">
+        <div class="leafletPartner-summary row">
             <div class="col-xs-12">
                 {partner.summary -> f:format.html()}
             </div>

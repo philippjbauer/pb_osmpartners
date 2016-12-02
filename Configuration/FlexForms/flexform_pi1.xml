@@ -57,6 +57,15 @@
                             </config>
                         </TCEforms>
                     </settings.initZoomLevel>
+                    <settings.showZipSearch>
+                        <TCEforms>
+                            <label>Show ZIP Search</label>
+                            <config>
+                                <type>boolean</type>
+                                <default>1</default>
+                            </config>
+                        </TCEforms>
+                    </settings.showZipSearch>
                 </el>
             </ROOT>
         </sDEF>
