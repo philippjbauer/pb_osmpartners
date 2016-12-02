@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2016-11-18T04:48:13Z" product-name="pb_osmpartners">
+		<header/>
+		<body>
+			<trans-unit id="tx_pbosmpartners_domain_model_map">
+				<target>Karte</target>
+			</trans-unit>
+			<trans-unit id="tx_pbosmpartners_domain_model_map.name">
+				<target>Name</target>
+			</trans-unit>
+			<trans-unit id="tx_pbosmpartners_domain_model_map.latitude">
+				<target>Breitengrad</target>
+			</trans-unit>
+			<trans-unit id="tx_pbosmpartners_domain_model_map.longitude">
+				<target>Längengrad</target>
+			</trans-unit>
+			<trans-unit id="tx_pbosmpartners_domain_model_map.styles">
+				<target>Kartenstil</target>
+			</trans-unit>
+			<trans-unit id="tx_pbosmpartners_domain_model_map.partners">
+				<target>Partner</target>
+			</trans-unit>
+
+			<trans-unit id="tx_pbosmpartners_domain_model_partner">
+				<target>Partner</target>
+			</trans-unit>
+			<trans-unit id="tx_pbosmpartners_domain_model_partner.name">
+				<target>Name</target>
+			</trans-unit>
+			<trans-unit id="tx_pbosmpartners_domain_model_partner.street">
+				<target>Straße</target>
+			</trans-unit>
+			<trans-unit id="tx_pbosmpartners_domain_model_partner.houseno">
+				<target>Hausnummer</target>
+			</trans-unit>
+			<trans-unit id="tx_pbosmpartners_domain_model_partner.zip">
+				<target>PLZ</target>
+			</trans-unit>
+			<trans-unit id="tx_pbosmpartners_domain_model_partner.city">
+				<target>Stadt</target>
+			</trans-unit>
+			<trans-unit id="tx_pbosmpartners_domain_model_partner.state">
+				<target>Bundesland</target>
+			</trans-unit>
+			<trans-unit id="tx_pbosmpartners_domain_model_partner.url">
+				<target>Url</target>
+			</trans-unit>
+			<trans-unit id="tx_pbosmpartners_domain_model_partner.summary">
+				<target>Zusammenfassung</target>
+			</trans-unit>
+			<trans-unit id="tx_pbosmpartners_domain_model_partner.description">
+				<target>Beschreibung</target>
+			</trans-unit>
+			<trans-unit id="tx_pbosmpartners_domain_model_partner.extra">
+				<target>Extra</target>
+			</trans-unit>
+			<trans-unit id="tx_pbosmpartners_domain_model_partner.logo">
+				<target>Logo</target>
+			</trans-unit>
+			<trans-unit id="tx_pbosmpartners_domain_model_partner.latitude">
+				<target>Breitengrad</target>
+			</trans-unit>
+			<trans-unit id="tx_pbosmpartners_domain_model_partner.longitude">
+				<target>Längengrad</target>
+			</trans-unit>
+			<trans-unit id="tx_pbosmpartners_domain_model_partner.country">
+				<target>Land</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
