@@ -138,7 +138,7 @@ function OsmPartnersMap (map, partners) {
 
 // Init each map after jQuery is loaded
 $(function() {
-    if (leafletMaps !== undefined) {
+    if (typeof leafletMaps != 'undefined') {
         for (var i = 0; i < leafletMaps.length; i++) {
             new OsmPartnersMap(leafletMaps[i], leafletPartners[i]);
         }

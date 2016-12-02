@@ -78,8 +78,8 @@ Otherwise your changes will be overwritten the next time you save the extension 
 
 <script type="text/javascript">
 <![CDATA[
-if (leafletMaps === undefined) { var leafletMaps = []; }
-if (leafletPartners === undefined) { var leafletPartners = []; }
+if (typeof leafletMaps == 'undefined') { var leafletMaps = []; }
+if (typeof leafletPartners == 'undefined') { var leafletPartners = []; }
 leafletMaps.push({
     uid: ]]>{map.uid}<![CDATA[,
     latitude: ]]>{map.latitude}<![CDATA[,
