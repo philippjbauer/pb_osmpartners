@@ -3,6 +3,13 @@
 	<file source-language="en" datatype="plaintext" original="messages" date="2016-11-18T04:48:13Z" product-name="pb_osmpartners">
 		<header/>
 		<body>
+			<trans-unit id="labels.learn-more">
+				<source>learn more</source>
+			</trans-unit>
+			<trans-unit id="labels.search-zip">
+				<source>Search for ZIP Code</source>
+			</trans-unit>
+
 			<trans-unit id="tx_pbosmpartners_domain_model_map">
 				<source>Map</source>
 			</trans-unit>
@@ -21,6 +28,7 @@
 			<trans-unit id="tx_pbosmpartners_domain_model_map.partners">
 				<source>Partners</source>
 			</trans-unit>
+
 			<trans-unit id="tx_pbosmpartners_domain_model_partner">
 				<source>Partner</source>
 			</trans-unit>

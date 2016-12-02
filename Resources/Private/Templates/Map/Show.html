@@ -20,7 +20,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
 <div id="leafletSearch-{map.uid}" class="leafletSearch leafletSearch-{map.uid}">
     <form action="#">
         <div class="input-group">
-            <input type="text" name="zip" class="form-control" placeholder="Search for ZIP Code">
+            <input type="text" name="zip" class="form-control" placeholder="{f:translate(key:'labels.search-zip')}">
             <span class="input-group-btn">
                 <button class="btn btn-success" type="button"><span class="glyphicon glyphicon-search"></span></button>
             </span>
@@ -35,30 +35,31 @@ Otherwise your changes will be overwritten the next time you save the extension 
                 <f:if condition="{partner.logo}">
                     <f:image image="{partner.logo}" maxHeight="100" />
                 </f:if>
-                <f:link.external uri="{partner.url}" class="btn btn-primary pull-right" target="_blank">jetzt informieren</f:link.external>
+                <f:link.external uri="{partner.url}" class="btn btn-primary pull-right" target="_blank">{f:translate(key:'labels.learn-more')}</f:link.external>
                 <div class="clearfix"></div>
             </div>
         </div>
         <div class="row">
-            <div class="col-xs-12 col-sm-6 col-md-4">
-                <strong>{partner.name}</strong><br>
-                {partner.street} {partner.houseno}<br>
-                {partner.zip} {partner.city}
-                <f:if condition="{partner.state}"><br>{partner.state}</f:if>
-                <f:if condition="{partner.country.shortNameLocal}"><br>{partner.country.shortNameLocal}</f:if>
+            <div class="partner-address col-xs-12 col-sm-6 col-md-4">
+                <strong>{partner.name}</strong>
+                <br>{partner.street} {partner.houseno}
+                <br>{partner.zip} {partner.city}
+                <f:if condition="{partner.state}">
+                    <br>{partner.state}
+                </f:if>
+                <f:if condition="{partner.url}">
+                    <br><f:link.external uri="{partner.url}" target="_blank">{partner.url}</f:link.external>
+                </f:if>
             </div>
-            <div class="col-xs-12 col-sm-6 col-md-8">
+            <div class="partner-description col-xs-12 col-sm-6 col-md-8">
             <f:if condition="{partner.description}">
                 {partner.description -> f:format.html()}
             </f:if>
             </div>
         </div>
         <f:if condition="{partner.summary}">
-        <div class="row">
+        <div class="partner-summary row">
             <div class="col-xs-12">
-                <p>
-                    <strong>Verfuegbare NMS Kompetenzfelder</strong>
-                </p>
                 {partner.summary -> f:format.html()}
             </div>
         </div>
