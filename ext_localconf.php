@@ -9,11 +9,11 @@ call_user_func(
             'PhilippBauer.PbOsmpartners',
             'Pi1',
             [
-                'Map' => 'show'
+                'Map' => 'show, tracking'
             ],
             // non-cacheable actions
             [
-                'Map' => 'show'
+                'Map' => 'show, tracking'
             ]
         );
 

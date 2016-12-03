@@ -10,6 +10,13 @@
 				<source>Search for ZIP Code</source>
 			</trans-unit>
 
+			<trans-unit id="mail.tracking-subject">
+				<source>New Click for %s</source>
+			</trans-unit>
+			<trans-unit id="mail.tracking-content">
+				<source>A new click for %s was tracked, the current Click Counter is: %s</source>
+			</trans-unit>
+
 			<trans-unit id="tx_pbosmpartners_domain_model_map">
 				<source>Map</source>
 			</trans-unit>
@@ -73,6 +80,9 @@
 			</trans-unit>
 			<trans-unit id="tx_pbosmpartners_domain_model_partner.country">
 				<source>Country</source>
+			</trans-unit>
+			<trans-unit id="tx_pbosmpartners_domain_model_partner.click_counter">
+				<source>Click Counter</source>
 			</trans-unit>
 		</body>
 	</file>

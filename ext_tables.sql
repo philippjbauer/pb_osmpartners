@@ -63,6 +63,7 @@ CREATE TABLE tx_pbosmpartners_domain_model_partner (
 	latitude double(11,6) DEFAULT '0.000000' NOT NULL,
 	longitude double(11,6) DEFAULT '0.000000' NOT NULL,
 	country int(11) unsigned DEFAULT '0',
+	click_counter int(11) unsigned NOT NULL default '0',
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
 	crdate int(11) unsigned DEFAULT '0' NOT NULL,

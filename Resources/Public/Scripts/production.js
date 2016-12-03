@@ -14,7 +14,7 @@
  * @param {object} map      Map configuration from Extbase Map Model
  * @param {object} partners Partners saved in Extbase Map Model in JSON
  */
-function OsmPartnersMap (map, partners) {
+function OsmPartnersMap (map, partners, settings) {
     var scope = this;
 
     // Put the above given variables into
@@ -22,6 +22,12 @@ function OsmPartnersMap (map, partners) {
     // they belong to it.
     scope.map = map;
     scope.partners = partners;
+    scope.options = {
+        trackingUrl: undefined,
+    };
+
+    // Merge Defaults and Settings
+    Object.assign(scope.options, settings);
 
     // Leaflet Configuration
     scope.leaflet = {
@@ -47,8 +53,9 @@ function OsmPartnersMap (map, partners) {
     
     // Scope Methods
     scope.addMarkers = addMarkers;
-    scope.watchInput = watchInput;
     scope.filterPartners = filterPartners;
+    scope.watchInput = watchInput;
+    scope.watchPartnerLinks = watchPartnerLinks;
 
     // Initiate Map Class
     init();
@@ -67,6 +74,7 @@ function OsmPartnersMap (map, partners) {
         scope.addMarkers();
 
         scope.watchInput();
+        scope.watchPartnerLinks();
     }
 
     /**
@@ -107,7 +115,7 @@ function OsmPartnersMap (map, partners) {
                     <strong>' + scope.partners[i].name + '</strong>\
                     <br>' + scope.partners[i].street + ' ' + scope.partners[i].houseno + '\
                     <br>' + scope.partners[i].zip + ' ' + scope.partners[i].city + '\
-                    <br><a href="' + scope.partners[i].url + '" target="_blank">Webseite aufrufen</a>\
+                    <br><a href="' + scope.partners[i].url + '" class="js-partner-tracking" data-partner="' + scope.partners[i].uid + '" target="_blank">Webseite aufrufen</a>\
                 ';
                 marker.bindPopup(popupHtml);
 
@@ -115,6 +123,25 @@ function OsmPartnersMap (map, partners) {
                 scope.leaflet.markers.addLayer(marker);
             }
         }
+    }
+
+    /**
+     * Filter Partners List
+     */
+    function filterPartners (zip) {
+        var zip = zip === undefined ? '' : zip;
+
+        if (zip !== '') {
+            // Hide all partners
+            $('#leaflet-partners-' + scope.map.uid + ' .leaflet-partner').hide();
+            // Show partners that do match the ZIP-Code
+            $('#leaflet-partners-' + scope.map.uid + ' .leaflet-partner[data-zip^="' + zip + '"]').show();
+        } else {
+            // Show all partners
+            $('#leaflet-partners-' + scope.map.uid + ' .leaflet-partner').show();
+        }
+
+        scope.addMarkers(zip === '' ? null : zip);
     }
 
     /**
@@ -140,22 +167,36 @@ function OsmPartnersMap (map, partners) {
     }
 
     /**
-     * Filter Partners List
+     * Watch clicks on partner links
      */
-    function filterPartners (zip) {
-        var zip = zip === undefined ? '' : zip;
-
-        if (zip !== '') {
-            // Hide all partners
-            $('#leaflet-partners-' + scope.map.uid + ' .leaflet-partner').hide();
-            // Show partners that do match the ZIP-Code
-            $('#leaflet-partners-' + scope.map.uid + ' .leaflet-partner[data-zip^="' + zip + '"]').show();
+    function watchPartnerLinks () {
+        if (typeof scope.options.trackingUrl != 'undefined') {
+            $('body').on('click', '.js-partner-tracking', function () {
+                trackPartnerLinkClick($(this).data('partner'));
+            });
         } else {
-            // Show all partners
-            $('#leaflet-partners-' + scope.map.uid + ' .leaflet-partner').show();
+            console.log('Can\'t track clicks. No tracking URL defined.');
         }
+    }
 
-        scope.addMarkers(zip === '' ? null : zip);
+    /**
+     * Track partner link click
+     * @param  {integer} partner
+     * @return {void}
+     */
+    function trackPartnerLinkClick (partner) {
+        $.post(
+            scope.options.trackingUrl,
+            'tx_pbosmpartners_pi1[partner]=' + partner
+        )
+        .done(function (data) {
+            if (data.success == 'false') {
+                console.log(data.message);
+            }
+        })
+        .fail(function () {
+            console.log('XHR call not successful. Nothing will be tracked.');
+        });
     }
     
 }
@@ -164,7 +205,13 @@ function OsmPartnersMap (map, partners) {
 $(function() {
     if (typeof leafletMaps != 'undefined') {
         for (var i = 0; i < leafletMaps.length; i++) {
-            new OsmPartnersMap(leafletMaps[i], leafletPartners[i]);
+            new OsmPartnersMap(
+                leafletMaps[i], 
+                leafletPartners[i], 
+                {
+                    trackingUrl: leafletTrackingUrl
+                }
+            );
         }
     }
 });
