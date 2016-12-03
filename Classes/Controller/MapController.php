@@ -126,7 +126,8 @@ class MapController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
             $currentCount = $this->incrementClickCounter($partner);
 
             // Send email to NOX that the link was clicked
-            if ($this->sendTrackingInfoMail($partner) === true) {
+            $infoMailResult = $this->sendTrackingInfoMail($partner);
+            if ($infoMailResult === true) {
                 $result = [
                     'success' => true,
                     'message' => 'Info mail was sent. Click was tracked.',
@@ -135,7 +136,7 @@ class MapController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
             } else {
                 $result = [
                     'success' => false,
-                    'message' => 'Couldn\'t send info mail. Click was tracked.',
+                    'message' => 'Click was tracked. InfoMail Error: ' . $infoMailResult,
                     // 'counter' => $currentCount, <-- was only used to check if persistence works, shouldn't be public though
                 ];
             }
@@ -207,9 +208,10 @@ class MapController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
         
         // Send a simple text-only mail
         try {
-            return $sendmail->sendSimpleMail();        
+            $sendmail->sendSimpleMail();        
+            return true;
         } catch (\Exception $e) {
-            return false;
+            return $e->getMessage();
         }
     }
 }
