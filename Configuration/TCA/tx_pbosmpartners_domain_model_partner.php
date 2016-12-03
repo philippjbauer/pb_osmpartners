@@ -190,7 +190,7 @@ return [
 	        'label' => 'LLL:EXT:pb_osmpartners/Resources/Private/Language/locallang_db.xlf:tx_pbosmpartners_domain_model_partner.click_counter',
 	        'config' => [
 			    'type' => 'input',
-			    'size' => 30,
+			    'size' => 5,
 			],
 	        
 	    ],
