@@ -66,6 +66,46 @@
                             </config>
                         </TCEforms>
                     </settings.showZipSearch>
+                    <settings.senderName>
+                        <TCEforms>
+                            <label>Sender Name (for Click Counter Message)</label>
+                            <config>
+                                <type>input</type>
+                                <default></default>
+                                <size>30</size>
+                            </config>
+                        </TCEforms>
+                    </settings.senderName>
+                    <settings.senderEmail>
+                        <TCEforms>
+                            <label>Sender Email (for Click Counter Message)</label>
+                            <config>
+                                <type>input</type>
+                                <default></default>
+                                <size>30</size>
+                            </config>
+                        </TCEforms>
+                    </settings.senderEmail>
+                    <settings.recipientName>
+                        <TCEforms>
+                            <label>Recipient Name (for Click Counter Message)</label>
+                            <config>
+                                <type>input</type>
+                                <default></default>
+                                <size>30</size>
+                            </config>
+                        </TCEforms>
+                    </settings.recipientName>
+                    <settings.recipientEmail>
+                        <TCEforms>
+                            <label>Recipient Email (for Click Counter Message)</label>
+                            <config>
+                                <type>input</type>
+                                <default></default>
+                                <size>30</size>
+                            </config>
+                        </TCEforms>
+                    </settings.recipientEmail>
                 </el>
             </ROOT>
         </sDEF>

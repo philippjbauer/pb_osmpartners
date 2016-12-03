@@ -12,14 +12,4 @@ plugin.tx_pbosmpartners {
     # cat=plugin.tx_pbosmpartners//a; type=string; label=Default storage PID
     storagePid =
   }
-  settings {
-    # cat=plugin.tx_pbosmpartners//general; type=string; label=Sender Name
-    senderName = 
-    # cat=plugin.tx_pbosmpartners//general; type=string; label=Sender Email
-    senderEmail = 
-    # cat=plugin.tx_pbosmpartners//general; type=string; label=Recipient Name
-    recipientName = 
-    # cat=plugin.tx_pbosmpartners//general; type=string; label=Recipient Email
-    recipientEmail = 
-  }
 }

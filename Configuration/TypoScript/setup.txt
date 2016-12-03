@@ -18,12 +18,6 @@ plugin.tx_pbosmpartners {
   mvc {
     #callDefaultActionIfActionCantBeResolved = 1
   }
-  settings {
-    senderName = {$plugin.tx_pbosmpartners.settings.senderName}
-    senderEmail = {$plugin.tx_pbosmpartners.settings.senderEmail}
-    recipientName = {$plugin.tx_pbosmpartners.settings.recipientName}
-    recipientEmail = {$plugin.tx_pbosmpartners.settings.recipientEmail}
-  }
 }
 
 plugin.tx_vhs.settings.asset {
