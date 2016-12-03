@@ -72,6 +72,13 @@ class Partner extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     protected $url = '';
 
     /**
+     * clickCounter
+     *
+     * @var integer
+     */
+    protected $clickCounter = '';
+
+    /**
      * summary
      *
      * @var string
@@ -289,6 +296,27 @@ class Partner extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
     public function setUrl($url)
     {
         $this->url = $url;
+    }
+
+    /**
+     * Returns the clickCounter
+     *
+     * @return integer $clickCounter
+     */
+    public function getClickCounter()
+    {
+        return $this->clickCounter;
+    }
+
+    /**
+     * Sets the clickCounter
+     *
+     * @param integer $clickCounter
+     * @return void
+     */
+    public function setClickCounter($clickCounter)
+    {
+        $this->clickCounter = $clickCounter;
     }
 
     /**
