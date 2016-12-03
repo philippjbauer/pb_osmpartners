@@ -166,7 +166,7 @@ class MapController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
     private function incrementClickCounter(Partner $partner = null)
     {
         if ($partner !== null) {
-            $persistenceManager = $this->objectManager->get('\\TYPO3\\CMS\\Extbase\\Persistence\\Generic\\PersistenceManager');
+            $persistenceManager = $this->objectManager->get('TYPO3\\CMS\\Extbase\\Persistence\\Generic\\PersistenceManager');
             $partner->setClickCounter((int) $partner->getClickCounter() + 1);
             $this->partnerRepository->update($partner);
             $persistenceManager->persistAll();
