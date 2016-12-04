@@ -26,25 +26,6 @@ class MapControllerTest extends \TYPO3\CMS\Core\Tests\UnitTestCase
     /**
      * @test
      */
-    public function listActionFetchesAllMapsFromRepositoryAndAssignsThemToView()
-    {
-
-        $allMaps = $this->getMock(\TYPO3\CMS\Extbase\Persistence\ObjectStorage::class, [], [], '', false);
-
-        $mapRepository = $this->getMock(\PhilippBauer\PbOsmpartners\Domain\Repository\MapRepository::class, ['findAll'], [], '', false);
-        $mapRepository->expects(self::once())->method('findAll')->will(self::returnValue($allMaps));
-        $this->inject($this->subject, 'mapRepository', $mapRepository);
-
-        $view = $this->getMock(\TYPO3\CMS\Extbase\Mvc\View\ViewInterface::class);
-        $view->expects(self::once())->method('assign')->with('maps', $allMaps);
-        $this->inject($this->subject, 'view', $view);
-
-        $this->subject->listAction();
-    }
-
-    /**
-     * @test
-     */
     public function showActionAssignsTheGivenMapToView()
     {
         $map = new \PhilippBauer\PbOsmpartners\Domain\Model\Map();

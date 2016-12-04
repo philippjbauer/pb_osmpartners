@@ -39,17 +39,6 @@ class MapController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
     protected $partnerRepository = null;
 
     /**
-     * List maps (not used really but the extension builder complained because it was missing)
-     *
-     * @return void
-     */
-    public function listAction()
-    {
-        $maps = $this->mapRepository->findAll();
-        $this->view->assign('maps', $maps);
-    }
-
-    /**
      * Show the partner map
      *
      * @param \PhilippBauer\PbOsmpartners\Domain\Model\Map $map
