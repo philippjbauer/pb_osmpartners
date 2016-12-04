@@ -83,15 +83,32 @@ Otherwise your changes will be overwritten the next time you save the extension 
 
 <script type="text/javascript">
 <![CDATA[
+// If the arrays for the map don't exist yet (first map on page)
+// create them. They will be used later by other maps.
+// Stack for maps
 if (typeof leafletMaps == 'undefined') { var leafletMaps = []; }
+// Stack for partners
 if (typeof leafletPartners == 'undefined') { var leafletPartners = []; }
-if (typeof leafletTrackingUrl == 'undefined') { var leafletTrackingUrl = ']]>{f:uri.action(action:'tracking')}<![CDATA['; }
+// Action URL for the controller
+if (typeof leafletTrackingUrl == 'undefined') {
+    var leafletTrackingUrl = ']]>{f:uri.action(action:'tracking')}<![CDATA[';
+}
+// Translated labels for the map class
+if (typeof leafletLabels == 'undefined') {
+    var leafletLabels = {
+        linktext: ']]>{f:translate(key:'labels.open-website')}<![CDATA['
+    };
+}
+
+// Push map to array stack
 leafletMaps.push({
     uid: ]]>{map.uid}<![CDATA[,
     latitude: ]]>{map.latitude}<![CDATA[,
     longitude: ]]>{map.longitude}<![CDATA[,
     initZoomLevel: ]]>{settings.initZoomLevel}<![CDATA[,
 });
+
+// Push partners to array stack
 leafletPartners.push(]]>{partnersJson -> f:format.raw()}<![CDATA[);
 ]]>
 </script>

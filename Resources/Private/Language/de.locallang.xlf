@@ -9,6 +9,9 @@
 			<trans-unit id="labels.search-zip">
 				<target>Nach PLZ suchen</target>
 			</trans-unit>
+			<trans-unit id="labels.open-website">
+				<target>Webseite aufrufen</target>
+			</trans-unit>
 
 			<trans-unit id="mail.tracking-subject">
 				<target>Neuer Klick bei %s</target>

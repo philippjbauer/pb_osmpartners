@@ -9,6 +9,9 @@
 			<trans-unit id="labels.search-zip">
 				<source>Search for ZIP Code</source>
 			</trans-unit>
+			<trans-unit id="labels.open-website">
+				<source>Open Website</source>
+			</trans-unit>
 
 			<trans-unit id="mail.tracking-subject">
 				<source>New Click for %s</source>

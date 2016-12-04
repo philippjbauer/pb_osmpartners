@@ -232,7 +232,8 @@ $(function() {
                 leafletMaps[i], 
                 leafletPartners[i], 
                 {
-                    trackingUrl: leafletTrackingUrl
+                    trackingUrl: leafletTrackingUrl,
+                    labels: leafletLabels,
                 }
             );
         }
