@@ -24,6 +24,17 @@ function OsmPartnersMap (map, partners, settings) {
     scope.partners = partners;
     scope.options = {
         trackingUrl: undefined,
+        provider: 'CartoDB.Positron',
+        icon: {
+            iconUrl: 'typo3conf/ext/pb_osmpartners/Resources/bower_components/leaflet/dist/images/marker-icon.png',
+            iconRetinaUrl: 'typo3conf/ext/pb_osmpartners/Resources/bower_components/leaflet/dist/images/marker-icon-2x.png',
+            iconSize: [25, 41],
+            iconAnchor: [12, 41],
+            popupAnchor: [0, -46],
+        },
+        labels: {
+            linktext: 'Webseite aufrufen',
+        }
     };
 
     // Merge Defaults and Settings
@@ -36,19 +47,13 @@ function OsmPartnersMap (map, partners, settings) {
         map: L.map('leaflet-map-' + scope.map.uid),
         // See other providers at
         // http://leaflet-extras.github.io/leaflet-providers/preview/index.html
-        provider: L.tileLayer.provider('CartoDB.Positron'),
+        provider: L.tileLayer.provider(scope.options.provider),
         // We need a seperate markers layer to be able to clear all markers at once
         markers: L.layerGroup(),
         // Set the marker to use absolute URLs
         // for the icon. Otherwise the path doesn't
         // resolve correctly.
-        icon: L.icon({
-            iconUrl: 'typo3conf/ext/pb_osmpartners/Resources/bower_components/leaflet/dist/images/marker-icon.png',
-            iconRetinaUrl: 'typo3conf/ext/pb_osmpartners/Resources/bower_components/leaflet/dist/images/marker-icon-2x.png',
-            iconSize: [25, 41],
-            iconAnchor: [12, 41],
-            popupAnchor: [0, -46]
-        }),
+        icon: L.icon({scope.options.icon}),
     };
     
     // Scope Methods
@@ -104,25 +109,45 @@ function OsmPartnersMap (map, partners, settings) {
                 );
 
                 // Create Tooltip
-                var tooltipHtml = '\
-                    <strong>' + scope.partners[i].name + '</strong>\
-                    <br>' +  scope.partners[i].city + '\
-                ';
+                var tooltipHtml = scope.createTooltipMarkup(scope.partners[i]);
                 marker.bindTooltip(tooltipHtml);
 
                 // Create Popup
-                var popupHtml = '\
-                    <strong>' + scope.partners[i].name + '</strong>\
-                    <br>' + scope.partners[i].street + ' ' + scope.partners[i].houseno + '\
-                    <br>' + scope.partners[i].zip + ' ' + scope.partners[i].city + '\
-                    <br><a href="' + scope.partners[i].url + '" class="js-partner-tracking" data-partner="' + scope.partners[i].uid + '" target="_blank">Webseite aufrufen</a>\
-                ';
+                var popupHtml = scope.createPopupMarkup(scope.partners[i], scope.options.labels.linktext);
                 marker.bindPopup(popupHtml);
 
                 // Add marker to the marker layer
                 scope.leaflet.markers.addLayer(marker);
             }
         }
+    }
+
+    /**
+     * Create the HTML markup for the marker tooltip
+     * @param  {object} partner
+     * @return {string}
+     */
+    function createTooltipMarkup (partner) {
+        return '\
+            <strong>' + partner.name + '</strong>\
+            <br>' +  partner.city + '\
+        ';
+    }
+
+
+    /**
+     * Create the HTML markup for the marker popup
+     * @param  {object} partner
+     * @param  {string} linktext
+     * @return {string}
+     */
+    function createPopupMarkup (partner, linktext) {
+        return '\
+            <strong>' + partner.name + '</strong>\
+            <br>' + partner.street + ' ' + partner.houseno + '\
+            <br>' + partner.zip + ' ' + partner.city + '\
+            <br><a href="' + partner.url + '" class="js-partner-tracking" data-partner="' + partner.uid + '" target="_blank">' + linktext + '</a>\
+        ';
     }
 
     /**
@@ -175,7 +200,7 @@ function OsmPartnersMap (map, partners, settings) {
                 trackPartnerLinkClick($(this).data('partner'));
             });
         } else {
-            console.log('Can\'t track clicks. No tracking URL defined.');
+            console.error('Can\'t track clicks. No tracking URL defined.');
         }
     }
 
@@ -195,7 +220,7 @@ function OsmPartnersMap (map, partners, settings) {
             }
         })
         .fail(function () {
-            console.log('XHR call not successful. Nothing will be tracked.');
+            console.error('XHR call not successful. Nothing will be tracked.');
         });
     }
     
