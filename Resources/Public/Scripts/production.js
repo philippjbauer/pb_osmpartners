@@ -11,8 +11,9 @@
 
 /**
  * OpenStreetMap Partners Map Class
- * @param {object} map      Map configuration from Extbase Map Model
- * @param {object} partners Partners saved in Extbase Map Model in JSON
+ * @param {object} map      Map Configuration from Extbase Map Model
+ * @param {object} partners Partners saved from Extbase Map Model in JSON
+ * @param {object} settings Optional settings
  */
 function OsmPartnersMap (map, partners, settings) {
     var scope = this;
@@ -34,7 +35,8 @@ function OsmPartnersMap (map, partners, settings) {
         },
         labels: {
             linktext: 'Webseite aufrufen',
-        }
+        },
+        filterDelay: 500,
     };
 
     // Merge Defaults and Settings
@@ -184,7 +186,7 @@ function OsmPartnersMap (map, partners, settings) {
                         window.clearTimeout(inputDelay);
                     }
                     
-                    inputDelay = window.setTimeout(filterPartners, 500, $(this).val());
+                    inputDelay = window.setTimeout(filterPartners, scope.options.filterDelay, $(this).val());
                 });
         }
     }
