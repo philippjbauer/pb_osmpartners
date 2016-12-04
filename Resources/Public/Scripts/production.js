@@ -53,14 +53,8 @@ function OsmPartnersMap (map, partners, settings) {
         // Set the marker to use absolute URLs
         // for the icon. Otherwise the path doesn't
         // resolve correctly.
-        icon: L.icon({scope.options.icon}),
+        icon: L.icon(scope.options.icon),
     };
-    
-    // Scope Methods
-    scope.addMarkers = addMarkers;
-    scope.filterPartners = filterPartners;
-    scope.watchInput = watchInput;
-    scope.watchPartnerLinks = watchPartnerLinks;
 
     // Initiate Map Class
     init();
@@ -76,10 +70,13 @@ function OsmPartnersMap (map, partners, settings) {
             .setView([scope.map.latitude, scope.map.longitude], scope.map.initZoomLevel)
             .addLayer(scope.leaflet.provider)
             .addLayer(scope.leaflet.markers);
-        scope.addMarkers();
 
-        scope.watchInput();
-        scope.watchPartnerLinks();
+        // Add the partners to the markerLayer
+        addMarkers();
+        // Watch ZIP input
+        watchInput();
+        // Watch links
+        watchPartnerLinks();
     }
 
     /**
@@ -104,16 +101,16 @@ function OsmPartnersMap (map, partners, settings) {
                         scope.partners[i].longitude
                     ],
                     {
-                        icon: this.leaflet.icon
+                        icon: scope.leaflet.icon
                     }
                 );
 
                 // Create Tooltip
-                var tooltipHtml = scope.createTooltipMarkup(scope.partners[i]);
+                var tooltipHtml = createTooltipMarkup(scope.partners[i]);
                 marker.bindTooltip(tooltipHtml);
 
                 // Create Popup
-                var popupHtml = scope.createPopupMarkup(scope.partners[i], scope.options.labels.linktext);
+                var popupHtml = createPopupMarkup(scope.partners[i], scope.options.labels.linktext);
                 marker.bindPopup(popupHtml);
 
                 // Add marker to the marker layer
@@ -166,7 +163,8 @@ function OsmPartnersMap (map, partners, settings) {
             $('#leaflet-partners-' + scope.map.uid + ' .leaflet-partner').show();
         }
 
-        scope.addMarkers(zip === '' ? null : zip);
+        // Add filtered markers to the map
+        addMarkers(zip === '' ? null : zip);
     }
 
     /**
